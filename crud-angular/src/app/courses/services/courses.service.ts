@@ -12,6 +12,10 @@ export class CoursesService {
 
   constructor(private httpClient: HttpClient) { }
 
+  save(course: Course){
+     return this.httpClient.post<Course>(this.API, course);
+  }
+
   list(){
     return this.httpClient.get<Course[]>(this.API)
     .pipe(
